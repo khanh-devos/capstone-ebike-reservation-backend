@@ -1,0 +1,2 @@
+class EbikesController < ApplicationController
+end
