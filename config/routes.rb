@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   get 'users/sign_out', to: "users#user_sign_out", as: "user_sign_out"
 
 
-  resources :users, only: %i[index] do
-    resources :ebikes, only: %i[index] do
-      resources :reservations, only: %i[index]
-    end
-  end
+  resources :users, only: %i[index]
+  resources :reservations, only: %i[index]
+  resources :ebikes, only: %i[index]
 
 end
