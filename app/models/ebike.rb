@@ -7,5 +7,4 @@ class Ebike < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :city, presence: true
-
 end
