@@ -30,10 +30,9 @@ class AuthenticationController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      token = jwt_encode(user_id: user.id)
 
       render json: {
-        token:,
+        token: jwt_encode(user_id: user.id),
         user: {
           id: user.id,
           name: user.name
