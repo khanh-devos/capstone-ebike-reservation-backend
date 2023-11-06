@@ -9,13 +9,6 @@ Rails.application.routes.draw do
   post '/api/login', to: 'authentication#login'
   post '/api/register', to: 'authentication#register'
 
-  
-  namespace :api do
-    namespace :v1 do
-      resources :reservations, only: %i[index show create destroy]
-      resources :ebikes, only: %i[index show create destroy]
-    end
-  end
 
   namespace :api do
     namespace :v1 do
