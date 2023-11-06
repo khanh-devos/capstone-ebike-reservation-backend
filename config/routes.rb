@@ -10,9 +10,19 @@ Rails.application.routes.draw do
   post '/api/register', to: 'authentication#register'
 
   
-  resources :users, only: %i[index]
-  resources :reservations, only: %i[index]
-  resources :ebikes, only: %i[index]
+  namespace :api do
+    namespace :v1 do
+      resources :reservations, only: %i[index show create destroy]
+      resources :ebikes, only: %i[index show create destroy]
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :reservations, only: %i[index show create destroy]
+      resources :ebikes, only: %i[index show create destroy]
+    end
+  end
 
 
 end
