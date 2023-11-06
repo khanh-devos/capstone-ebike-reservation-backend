@@ -4,10 +4,9 @@ class AuthenticationController < ApplicationController
     @user = User.find_by_name(params[:name])
 
     if @user&.valid_password?(params[:password])
-      token = jwt_encode(user_id: @user.id)
 
       render json: {
-        token:,
+        token: jwt_encode(user_id: @user.id),
         user: {
           id: @user.id,
           name: @user.name
