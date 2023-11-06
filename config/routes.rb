@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'users/sign_out', to: "users#user_sign_out", as: "user_sign_out"
+  get '/api/logout', to: "authentication#logout"
   post '/api/login', to: 'authentication#login'
   post '/api/register', to: 'authentication#register'
 

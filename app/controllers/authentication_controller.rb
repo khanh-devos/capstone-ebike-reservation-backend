@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
       token = jwt_encode(user_id: @user.id)
 
       render json: {
-        token:,
+        token: token,
         user: {
           id: @user.id,
           name: @user.name
@@ -20,24 +20,36 @@ class AuthenticationController < ApplicationController
   end
 
   def register
-    p user_params
 
+    # validate email
     render json: { error: 'email failed' }, status: 400 unless valid_email(user_params)
 
+    # validate password
     render json: { error: 'password failed' }, status: 400 unless valid_pass(user_params)
 
-    user = User.create(user_params)
+    # new user
+    user = User.new(user_params)
 
     if user.save
+      token = jwt_encode(user_id: user.id)
+
       render json: {
-        success: true,
-        message: 'Successfully created'
+        token: token,
+        user: {
+          id: user.id,
+          name: user.name
+        }
       }, status: :ok
 
     else
-      render json: { error: 'Failed' }, status: 400
+      render json: { error: 'Sign up Failed!!' }, status: 400
 
     end
+  end
+
+
+  def logout
+    @current_user = nil
   end
 
   private

@@ -4,7 +4,6 @@ module JwtApi
   SECRET_KEY = Rails.application.secret_key_base
 
   def jwt_encode(payload, exp = 1.days.from_now)
-    puts SECRET_KEY
     payload[:exp] = exp.to_i
     JWT.encode(payload, SECRET_KEY)
   end
