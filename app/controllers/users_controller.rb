@@ -5,6 +5,4 @@ class UsersController < ApplicationController
       data: User.all
     }
   end
-
-  
 end

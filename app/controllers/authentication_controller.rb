@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
       token = jwt_encode(user_id: @user.id)
 
       render json: {
-        token: token,
+        token:,
         user: {
           id: @user.id,
           name: @user.name
@@ -20,7 +20,6 @@ class AuthenticationController < ApplicationController
   end
 
   def register
-
     # validate email
     render json: { error: 'email failed' }, status: 400 unless valid_email(user_params)
 
@@ -34,7 +33,7 @@ class AuthenticationController < ApplicationController
       token = jwt_encode(user_id: user.id)
 
       render json: {
-        token: token,
+        token:,
         user: {
           id: user.id,
           name: user.name
@@ -46,7 +45,6 @@ class AuthenticationController < ApplicationController
 
     end
   end
-
 
   def logout
     @current_user = nil
