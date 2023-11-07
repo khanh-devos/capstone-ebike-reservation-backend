@@ -28,6 +28,6 @@ class Api::V1::EbikesController < ApplicationController
   private
 
   def ebike_params
-    params.require(:ebike).permit(:name, :image, :price, :description, :brand_id)
+    params.require(:ebike).permit(:name, :image, :price, :description, :city, :weight, :model)
   end
 end
