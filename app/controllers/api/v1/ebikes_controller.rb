@@ -1,7 +1,7 @@
 class Api::V1::EbikesController < ApplicationController
   def index
     ebikes = Ebike.all
-    render json: ebikes
+    render json: ebikes, status: :ok
   end
 
   def show

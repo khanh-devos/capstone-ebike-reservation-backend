@@ -7,5 +7,8 @@ class User < ApplicationRecord
   has_many :ebikes, foreign_key: 'seller_id'
   has_many :reservations, foreign_key: 'user_id'
 
-  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :email, uniqueness: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
 end
