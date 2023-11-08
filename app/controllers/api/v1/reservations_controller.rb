@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    reservations = Reservation.find_by(user_id: current_user.id)
-    render json: reservations
+    reservations = Reservation.where(user_id: current_user.id)
+    render json: reservations, status: :ok
   end
 
   def show
@@ -13,9 +13,9 @@ class Api::V1::ReservationsController < ApplicationController
     reservation = Reservation.new(reservation_params)
     reservation.user_id = current_user.id
     if reservation.save
-      render json: reservation
+      render json: reservation, status: :ok
     else
-      render json: { error: 'Reservation not created' }
+      render json: { error: 'Reservation not created' }, status: 400
     end
   end
 
@@ -28,6 +28,6 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :ebike_id)
+    params.require(:reservation).permit(:starting_date, :ending_date, :ebike_id)
   end
 end
