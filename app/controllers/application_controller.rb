@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::API
   include JwtApi
-  # before_action :authenticate_request, except: %i[login register]
+  before_action :authenticate_request, except: %i[login register]
+
+  attr_reader :current_user
 
   private
 
