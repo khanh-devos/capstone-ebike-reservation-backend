@@ -20,10 +20,16 @@ class AuthenticationController < ApplicationController
 
   def register
     # validate email
-    render json: { error: 'email failed' }, status: 400 unless valid_email(user_params)
+    unless valid_email(user_params)
+      render json: { error: 'email failed' }, status: 400
+      return
+    end
 
     # validate password
-    render json: { error: 'password failed' }, status: 400 unless valid_pass(user_params)
+    unless valid_pass(user_params)
+      render json: { error: 'password failed' }, status: 400
+      return
+    end
 
     # new user
     user = User.new(user_params)
