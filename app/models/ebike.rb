@@ -1,5 +1,5 @@
 class Ebike < ApplicationRecord
-  has_one_attached :image
+  # has_one_attached :image
 
   has_many :reservations, foreign_key: 'user_id'
 
