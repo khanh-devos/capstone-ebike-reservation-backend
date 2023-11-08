@@ -1,10 +1,10 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    #reservations = Reservation.all
-    p('current_user:',current_user)
+    # reservations = Reservation.all
+    p('current_user:', current_user)
     reservations = Reservation.includes(:ebike).where(user_id: current_user.id)
-    p('reservations',reservations, reservations[0].ebike) 
-    
+    p('reservations', reservations, reservations[0].ebike)
+
     render json: reservations
   end
 
