@@ -15,7 +15,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
-    reservation.user_id = current_user.i
+    reservation.user_id = current_user.id
     if reservation.save
       render json: reservation, status: :ok
     else
@@ -32,6 +32,7 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:starting_date, :ending_date, :ebike_id)
+    params.require(:reservation)
+    .permit(:starting_date, :ending_date, :ebike_id, :location)
   end
 end
