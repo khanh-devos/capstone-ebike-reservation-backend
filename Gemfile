@@ -48,3 +48,5 @@ end
 gem 'devise'
 gem 'devise-jwt'
 gem 'rack-cors'
+# Use Active Model Serializer for JSON serialization
+gem 'active_model_serializers'
