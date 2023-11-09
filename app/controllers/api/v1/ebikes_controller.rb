@@ -1,6 +1,8 @@
 class Api::V1::EbikesController < ApplicationController
+  skip_before_action :authenticate_request, only: %i[index]
+
   def index
-    ebikes = Ebike.all
+    ebikes = Ebike.all.order(created_at: 'desc')
     render json: ebikes, status: :ok
   end
 
