@@ -17,7 +17,7 @@ class Api::V1::EbikesController < ApplicationController
     if ebike.save
       render json: ebike
     else
-      render json: { error: 'Ebike not created' }
+      render json: { error: 'Ebike not created' }, status: 400
     end
   end
 
