@@ -33,6 +33,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation)
-    .permit(:starting_date, :ending_date, :ebike_id, :location)
+      .permit(:starting_date, :ending_date, :ebike_id, :location)
   end
 end
