@@ -85,6 +85,12 @@ Clone this repository to your desired folder:
   git clone https://github.com/khanh-devos/rails-7-snapscan.git 
 ```
 
+### API DOCUMENTATION
+
+[API DOCUMENTATION](https://documenter.getpostman.com/view/25150116/2s9YXk2LKW)
+
+![image-routes](RUTAS.png)
+
 ### Install
 
 Install this project with:
@@ -107,15 +113,32 @@ it will install the required gemfile for running the project
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="author"></a>
+## 👥 Author <a name="authors"></a>
 
-👤 **Khanh**
+👤 **Khanh-Devos**
 
-- GitHub: [khanh-devos](https://github.com/khanh-devos)
-- Twitter: [@khanhror](https://twitter.com/home?lang=en)
-- LinkedIn: [Khanh RoR](https://www.linkedin.com/in/khanh-dom/)
+- GitHub: [@khanh-devos](https://github.com/khanh-devos)
+- Twitter: [@khanhror](https://twitter.com/khanhror)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/khanh-dom/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+👤 **Souad El Mansouri**
+
+- GitHub: [@souad988](https://github.com/khanh-devos)
+- Twitter: [@souadElmansouri](https://twitter.com/souadElmansouri)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/souad-el-mansouri/)
+
+👤 **Rodrigo Penayo**
+
+- GitHub: [@rodrigopenayo98](https://github.com/rodrigopenayo98)
+- Twitter: [@rodrigopenayo98](https://twitter.com/rodrigopenayo98)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/rodrigopenayo/)
+
+
+👤 **Tchasinga Jacques**
+
+- GitHub: [@stchasinga](https://github.com/tchasinga)
+- Twitter: [@Tchasinga](https://twitter.com/Tchasinga)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tchasinga-jacques-76aba7214/)
 
 <!-- FUTURE FEATURES -->
 
