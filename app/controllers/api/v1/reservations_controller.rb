@@ -19,10 +19,10 @@ class Api::V1::ReservationsController < ApplicationController
       return
     end
 
-    unless validate_ebike_availability
-      render json: { error: 'failed' }, status: 400
-      return
-    end
+    # unless validate_ebike_availability
+    #   render json: { error: 'failed' }, status: 400
+    #   return
+    # end
 
     reservation = Reservation.new(reservation_params)
     reservation.user_id = current_user.id
