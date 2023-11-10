@@ -28,7 +28,7 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
-  def destroy
+  def delete
     reservation = Reservation.find_by(id: params[:id])
     reservation.destroy
     render json: reservation
