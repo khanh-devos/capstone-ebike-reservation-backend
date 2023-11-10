@@ -44,11 +44,12 @@ class Api::V1::ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation)
-      .permit(:book_date, :ebike_id, :location)
+      .permit(:starting_date, :ending_date, :ebike_id, :location)
   end
 
   def validate_time
-    return false if reservation_params[:book_date] < Time.now
+    return false if reservation_params[:starting_date] < Time.now
+    return false if reservation_params[:starting_date] > reservation_params[:ending_date]
 
     true
   end
