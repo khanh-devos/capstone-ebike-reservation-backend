@@ -2,7 +2,7 @@ class Api::V1::EbikesController < ApplicationController
   skip_before_action :authenticate_request, only: %i[index]
 
   def index
-    ebikes = Ebike.all.order(created_at: 'desc')
+    ebikes = Ebike.where(removed: false).order(created_at: 'desc')
     render json: ebikes, status: :ok
   end
 
@@ -22,8 +22,10 @@ class Api::V1::EbikesController < ApplicationController
   end
 
   def destroy
+    p('delete params', params)
     ebike = Ebike.find_by(id: params[:id])
-    ebike.destroy
+    ebike.removed = true
+    ebike.save
     render json: ebike
   end
 
