@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :reservations, only: %i[index show create destroy]
       resources :ebikes, only: %i[index show create destroy]
       resources :locations, only: %i[index ]
+      resources :ebike_models, only: %i[index ]
     end
   end
 

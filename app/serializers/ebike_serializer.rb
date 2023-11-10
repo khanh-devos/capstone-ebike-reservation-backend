@@ -1,3 +1,3 @@
 class EbikeSerializer < ActiveModel::Serializer
-  attributes :id, :name, :price, :city, :image
+  attributes :id, :model, :name, :price, :city, :image
 end

@@ -15,7 +15,7 @@ class Api::V1::EbikesController < ApplicationController
     ebike = Ebike.new(ebike_params)
     ebike.seller_id = current_user.id
     if ebike.save
-      render json: ebike
+      render json: ebike, status: :ok
     else
       render json: { error: 'Ebike not created' }, status: 400
     end
@@ -30,6 +30,7 @@ class Api::V1::EbikesController < ApplicationController
   private
 
   def ebike_params
-    params.require(:ebike).permit(:name, :image, :price, :description, :city, :weight, :model)
+    params.require(:ebike)
+    .permit(:name, :image, :price, :description, :city, :weight, :model)
   end
 end
