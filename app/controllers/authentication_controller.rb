@@ -9,7 +9,8 @@ class AuthenticationController < ApplicationController
         token: jwt_encode(user_id: @user.id),
         user: {
           id: @user.id,
-          name: @user.name
+          name: @user.name,
+          role: @user.role
         }
       }, status: :ok
 
@@ -19,28 +20,18 @@ class AuthenticationController < ApplicationController
   end
 
   def register
-    # validate email
-    unless valid_email(user_params)
-      render json: { error: 'email failed' }, status: 400
-      return
-    end
+    return unless valid_email(user_params)
+    return unless valid_pass(user_params)
 
-    # validate password
-    unless valid_pass(user_params)
-      render json: { error: 'password failed' }, status: 400
-      return
-    end
-
-    # new user
     user = User.new(user_params)
-
     if user.save
 
       render json: {
         token: jwt_encode(user_id: user.id),
         user: {
           id: user.id,
-          name: user.name
+          name: user.name,
+          role: user.role
         }
       }, status: :ok
 
@@ -66,13 +57,24 @@ class AuthenticationController < ApplicationController
   end
 
   def valid_email(user_params)
-    user_params[:email].match(/\A[^@\s]+@[^@\s]+\z/)
+    unless user_params[:email].match(/\A[^@\s]+@[^@\s]+\z/)
+      render json: { error: 'email failed' }, status: 400
+      false
+    end
+
+    true
   end
 
   def valid_pass(user_params)
-    return false unless user_params[:password].eql? user_params[:password_confirmation]
+    unless user_params[:password].eql? user_params[:password_confirmation]
+      render json: { error: 'password failed' }, status: 400
+      false
+    end
 
-    return false unless user_params[:password].match(/^(?=.*[\d])+(?=.*[a-zA-Z])+^.{5,}$/)
+    unless user_params[:password].match(/^(?=.*[\d])+(?=.*[a-zA-Z])+^.{5,}$/)
+      render json: { error: 'password failed' }, status: 400
+      false
+    end
 
     true
   end

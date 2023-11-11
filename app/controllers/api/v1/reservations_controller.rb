@@ -1,10 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    # reservations = Reservation.all
-    p('current_user:', current_user)
     reservations = Reservation.includes(:ebike).order(created_at: 'desc')
-    p('reservations', reservations, reservations[0].ebike)
-
     render json: reservations
   end
 

@@ -12,6 +12,8 @@ class Api::V1::EbikesController < ApplicationController
   end
 
   def create
+    return if current_user.role.eql?('admin')
+
     ebike = Ebike.new(ebike_params)
     ebike.seller_id = current_user.id
     if ebike.save
@@ -22,7 +24,9 @@ class Api::V1::EbikesController < ApplicationController
   end
 
   def destroy
-    p('delete params', params)
+    return if current_user.role.eql?('admin')
+
+    # p('delete params', params)
     ebike = Ebike.find_by(id: params[:id])
     ebike.removed = true
     ebike.save
@@ -33,6 +37,6 @@ class Api::V1::EbikesController < ApplicationController
 
   def ebike_params
     params.require(:ebike)
-    .permit(:name, :image, :price, :description, :city, :weight, :model)
+      .permit(:name, :image, :price, :description, :city, :weight, :model)
   end
 end
