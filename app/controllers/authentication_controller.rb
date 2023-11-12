@@ -59,7 +59,7 @@ class AuthenticationController < ApplicationController
   def valid_email(user_params)
     unless user_params[:email].match(/\A[^@\s]+@[^@\s]+\z/)
       render json: { error: 'email failed' }, status: 400
-      false
+      return false
     end
 
     true
@@ -68,12 +68,12 @@ class AuthenticationController < ApplicationController
   def valid_pass(user_params)
     unless user_params[:password].eql? user_params[:password_confirmation]
       render json: { error: 'password failed' }, status: 400
-      false
+      return false
     end
 
     unless user_params[:password].match(/^(?=.*[\d])+(?=.*[a-zA-Z])+^.{5,}$/)
       render json: { error: 'password failed' }, status: 400
-      false
+      return false
     end
 
     true

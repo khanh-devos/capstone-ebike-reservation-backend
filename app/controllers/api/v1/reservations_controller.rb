@@ -10,15 +10,8 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    unless validate_time
-      render json: { error: 'failed' }, status: 400
-      return
-    end
-
-    # unless validate_ebike_availability
-    #   render json: { error: 'failed' }, status: 400
-    #   return
-    # end
+    return unless validate_time
+    return unless validate_ebike_availability
 
     reservation = Reservation.new(reservation_params)
     reservation.user_id = current_user.id
@@ -44,18 +37,28 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def validate_time
-    return false if reservation_params[:starting_date] < Time.now
-    return false if reservation_params[:starting_date] > reservation_params[:ending_date]
+    s = reservation_params[:starting_date]
+    e = reservation_params[:ending_date]
+
+    if s > e || s < Time.now
+      render json: { error: 'Failed to create a reservaition' }, status: 400
+      return false
+    end
 
     true
   end
 
   def validate_ebike_availability
-    return true if Reservation.where(
-      ebike_id: reservation_params[:ebike_id],
-      book_date: reservation_params[:book_date]
-    ).empty?
+    s = reservation_params[:starting_date]
+    e = reservation_params[:ending_date]
 
-    false
+    ebike_booked_dates = Reservation.where(ebike_id: reservation_params[:ebike_id])
+
+    unless ebike_booked_dates.all? { |item| s > item.ending_date || e < item.starting_date }
+      render json: { error: 'Failed to create a reservaition' }, status: 400
+      return false
+    end
+
+    true
   end
 end
