@@ -31,7 +31,7 @@
 
 # 📖 About <a name="about-project"></a>
 
-**Ebike Reservation BackEnd** is a responsive application to reserve a test riding an electric bike.
+**Ebike Reservation BackEnd** is a responsive application to provide an electric bike test riding service. Only admins can add or delete a ebike. The cities for test-rides are limited. Clients could book a bike at a city in a specific time. Each city should have different ebikes. Ebikes should be booked by other clients on several days. The app has two parts backend and [frontend](https://github.com/khanh-devos/capstone-ebike-reservation-frontend)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -41,6 +41,11 @@
   <summary>Server</summary>
     <li><a href="">Ruby</a></li>
     <li><a href="">Rails</a></li>
+</details>
+<details>
+  <summary>Client</summary>
+    <li><a href="">Reactjs</a></li>
+    <li><a href="">JavaScript</a></li>
 </details>
 
 <!-- Features -->
@@ -82,7 +87,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```bash
-  git clone https://github.com/khanh-devos/rails-7-snapscan.git 
+  git clone https://github.com/khanh-devos/capstone-ebike-reservation-backend.git 
 ```
 
 ### API DOCUMENTATION
@@ -155,7 +160,7 @@ it will install the required gemfile for running the project
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/khanh-devos/snapscan/issues).
+Feel free to check the [issues page](https://github.com/khanh-devos/capstone-ebike-reservation-backend/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

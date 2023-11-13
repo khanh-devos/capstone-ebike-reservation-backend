@@ -1,10 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    # reservations = Reservation.all
-    p('current_user:', current_user)
-    reservations = Reservation.includes(:ebike).where(user_id: current_user.id).order(created_at: 'desc')
-    p('reservations', reservations, reservations[0].ebike)
-
+    reservations = Reservation.includes(:ebike).order(created_at: 'desc')
     render json: reservations
   end
 
@@ -14,13 +10,12 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    unless validate_reservation
-      render json: { error: 'failed' }, status: 400
-      return
-    end
+    return unless validate_time
+    return unless validate_ebike_availability
 
     reservation = Reservation.new(reservation_params)
     reservation.user_id = current_user.id
+
     if reservation.save
       render json: reservation, status: :ok
     else
@@ -41,8 +36,28 @@ class Api::V1::ReservationsController < ApplicationController
       .permit(:starting_date, :ending_date, :ebike_id, :location)
   end
 
-  def validate_reservation
-    return false if reservation_params[:ending_date] < params[:starting_date]
+  def validate_time
+    s = reservation_params[:starting_date]
+    e = reservation_params[:ending_date]
+
+    if s > e || s < Time.now
+      render json: { error: 'Failed to create a reservaition' }, status: 400
+      return false
+    end
+
+    true
+  end
+
+  def validate_ebike_availability
+    s = reservation_params[:starting_date]
+    e = reservation_params[:ending_date]
+
+    ebike_booked_dates = Reservation.where(ebike_id: reservation_params[:ebike_id])
+
+    unless ebike_booked_dates.all? { |item| s > item.ending_date || e < item.starting_date }
+      render json: { error: 'Failed to create a reservaition' }, status: 400
+      return false
+    end
 
     true
   end
