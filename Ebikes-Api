@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "d6dfbcd0-952b-4d20-9edb-9d701f53d10f",
+		"name": "Final-Capstone-Project-Ebikes",
+		"description": "The E-Bikes Reservations API allows users to create, view, and delete reservations for available e-bikes. Users can view the e-bikes they have reserved, check the availability of an e-bike on specific dates, and manage their own reservations in diferents locations.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25150116"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3100/api/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"name\": \"NombreUsuario1\",\r\n    \"email\": \"usuario1@example.com\",\r\n    \"password\": \"contraseña1234\",\r\n    \"password_confirmation\": \"contraseña1234\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "Allows users to register in the application."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"clau\",\r\n    \"password\": \"clau123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Allows users to log into the application."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/ebikes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/v1/ebikes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"ebikes"
+					]
+				},
+				"description": "Allows you to see all the added bikes."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/ebikes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"SpeedRider S1\",\r\n  \"model\": \"Ariel Rider\",\r\n  \"description\": \"Experience the freedom of moving sustainably with this e-bike.\",\r\n  \"price\": 1000.00,\r\n  \"city\": \"Uganda\",\r\n  \"weight\": 20.0,\r\n  \"image\": \"https://media.bcompras.com.mx/iFSz4S0PZCusaaKK1RvtSbd2.webp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/v1/ebikes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"ebikes"
+					]
+				},
+				"description": "Allows adding a new bike to the user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/locations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/v1/locations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"locations"
+					]
+				},
+				"description": "Allows you to see all the locations where reservations were made."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/reservations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"starting_date\": \"2023-12-01\",\r\n    \"ending_date\": \"2023-12-10\",\r\n    \"ebike_id\": 1,\r\n    \"location\": \"Ciudad Ejemplo\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/v1/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"reservations"
+					]
+				},
+				"description": "Allows the user to create a reservation."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/reservations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/v1/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"reservations"
+					]
+				},
+				"description": "Allows the user to see all their reservations."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/reservations/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/api/v1/reservations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"reservations",
+						"1"
+					]
+				},
+				"description": "Allows the user to view a specific reservation."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/reservations/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/api/v1/reservations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"reservations",
+						"1"
+					]
+				},
+				"description": "Allows the user to delete a specific reservation."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/ebikes/3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/api/v1/ebikes/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"ebikes",
+						"3"
+					]
+				},
+				"description": "Allows the user to view a specific bike with its details."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/v1/ebikes/3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/api/v1/ebikes/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"v1",
+						"ebikes",
+						"3"
+					]
+				},
+				"description": "Allows the user to delete a specific bike."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3100/api/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3MDIyMTM5NTR9.uCnDpeylwafqENvqkOdhi7SVSuvXGKRvAxYGfKWJu-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/api/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"logout"
+					]
+				},
+				"description": "When the user logs out successfully."
+			},
+			"response": []
+		}
+	]
+}
