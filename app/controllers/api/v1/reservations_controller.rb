@@ -28,9 +28,8 @@ class Api::V1::ReservationsController < ApplicationController
     if reservation.destroy
       render json: reservation, status: :ok
     else
-      render json: {error: 'Failed to delete a reservation'}, status: 400
+      render json: { error: 'Failed to delete a reservation' }, status: 400
     end
-    
   end
 
   private
