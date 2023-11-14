@@ -27,10 +27,13 @@ class Api::V1::EbikesController < ApplicationController
     ebike = Ebike.find_by(id: params[:id])
     return unless current_user.id.eql?(ebike.seller_id)
 
-    # p('delete params', params)
     ebike.removed = true
-    ebike.save
-    render json: ebike
+
+    if ebike.save
+      render json: ebike, status: :ok
+    else
+      render json: { error: 'Failed to delete' }, status: 400
+    end
   end
 
   private
