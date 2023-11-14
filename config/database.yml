@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: capstone_ebike_reservation_backend_production
-  username: capstone_ebike_reservation_backend
-  password: <%= ENV["CAPSTONE_EBIKE_RESERVATION_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
