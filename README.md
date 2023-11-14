@@ -20,6 +20,7 @@
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
+    - [Run tests](#run-tests)
   - [👥 Authors ](#authors)
   - [🔭 Future Features ](#future-features)
   - [🤝 Contributing ](#contributing)
@@ -65,7 +66,7 @@
 
 - [Deployment](https://snapscan-khanh.onrender.com) -->
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- GETTING STARTED -->
 
@@ -110,7 +111,17 @@ it will install the required gemfile for running the project
 ### Usage
 
 ```bash
+  bundle install
+  rails db:create
+  rails db:migrate
   rails s
+```
+### Run Linter Tests <a name="run-tests"></a>
+
+To run linter tests, run the following command:
+
+```sh
+  rubocop .
 ```
 
 
