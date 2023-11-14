@@ -67,12 +67,12 @@ class AuthenticationController < ApplicationController
 
   def valid_pass(user_params)
     unless user_params[:password].eql? user_params[:password_confirmation]
-      render json: { error: 'password failed' }, status: 400
+      render json: { error: 'Password & password confirmation should be the same' }, status: 400
       return false
     end
 
     unless user_params[:password].match(/^(?=.*[\d])+(?=.*[a-zA-Z])+^.{5,}$/)
-      render json: { error: 'password failed' }, status: 400
+      render json: { error: 'Password should have at least 1 number & 5-character length.' }, status: 400
       return false
     end
 
