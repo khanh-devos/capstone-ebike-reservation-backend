@@ -1,6 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    reservations = Reservation.includes(:ebike).order(created_at: 'desc')
+    reservations = Reservation.includes(:ebike)
+      .where(ebike: { removed: false }).order(created_at: 'desc')
     render json: reservations
   end
 
