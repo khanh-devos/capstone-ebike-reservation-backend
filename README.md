@@ -14,8 +14,8 @@
   - [🛠 Built With ](#built-with)
     - [Tech Stack ](#tech-stack)
     - [Key Features ](#key-features)
-  <!-- - [Live Demo](#live-demo) -->
-  - [💻 Getting Started ](#getting-started)
+    - [Live Demo](#live-demo)
+      - [💻 Getting Started ](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
@@ -60,13 +60,10 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo](https://www.loom.com/share/251368f90b724dcaaae58936fd4fd53a?sid=b14a6a4a-e243-4d1a-bc73-fa376a101421)
+- [Live Demo](https://reservations-frontend-06mp.onrender.com/)
 
-- [Deployment](https://snapscan-khanh.onrender.com) -->
-
-<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## 🚀 Kaban Board <a name="Kaban-Board"></a>
