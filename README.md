@@ -60,13 +60,11 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- 
+
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo](https://www.loom.com/share/251368f90b724dcaaae58936fd4fd53a?sid=b14a6a4a-e243-4d1a-bc73-fa376a101421)
+- [Demo](https://khanh-devos.github.io/capstone-ebike-reservation-frontend/)
 
-- [Deployment](https://snapscan-khanh.onrender.com) -->
-
-<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
