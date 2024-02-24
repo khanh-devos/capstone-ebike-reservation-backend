@@ -18,8 +18,6 @@ default: &default
   adapter: postgresql
   encoding: unicode
   # username: souad
-  username: postgres
-  password: souad
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -27,6 +25,8 @@ default: &default
 development:
   <<: *default
   database: capstone_ebike_reservation_backend_dev
+  username: postgres
+  password: postgres
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -84,4 +84,9 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  host: dpg-cncmubicn0vc73f2t9eg-a
+  port: 5432
+  database: ebike_reservations_db
+  username: ebike_reservations_db_user
+  password: gt2kH12L6SlLzRNKAJ8HpjMawy2fzxeF
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>

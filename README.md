@@ -61,7 +61,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo](https://reservations-frontend-06mp.onrender.com/)
+- [Demo](https://khanh-devos.github.io/capstone-ebike-reservation-frontend/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
