@@ -20,8 +20,9 @@ class AuthenticationController < ApplicationController
   end
 
   def register
-    return unless valid_email(user_params)
-    return unless valid_pass(user_params)
+    return unless valid_email
+    return unless valid_pass
+    return unless valid_role
 
     user = User.new(user_params)
     if user.save
@@ -56,7 +57,17 @@ class AuthenticationController < ApplicationController
       .permit(:role, :name, :email, :password, :password_confirmation)
   end
 
-  def valid_email(user_params)
+  def valid_role
+    roles = ['admin', 'client']
+    unless roles.include?(user_params[:role])
+      render json: { error: 'role is "client" or "admin" only' }, status: 400
+      return false
+    end
+
+    true
+  end
+
+  def valid_email
     unless user_params[:email].match(/\A[^@\s]+@[^@\s]+\z/)
       render json: { error: 'email failed' }, status: 400
       return false
@@ -65,7 +76,7 @@ class AuthenticationController < ApplicationController
     true
   end
 
-  def valid_pass(user_params)
+  def valid_pass
     unless user_params[:password].eql? user_params[:password_confirmation]
       render json: { error: 'Password & password confirmation should be the same' }, status: 400
       return false
