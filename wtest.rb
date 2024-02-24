@@ -1,4 +1,4 @@
-roles = ['admin', 'client']
+roles = %W[admin client]
 role = 'admin'
 
-puts roles.include?(role)
+p roles

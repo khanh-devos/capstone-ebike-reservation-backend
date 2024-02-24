@@ -58,7 +58,7 @@ class AuthenticationController < ApplicationController
   end
 
   def valid_role
-    roles = %w[admin client]
+    roles = %W[admin client]
     unless roles.include?(user_params[:role])
       render json: { error: 'role is "client" or "admin" only' }, status: 400
       return false
